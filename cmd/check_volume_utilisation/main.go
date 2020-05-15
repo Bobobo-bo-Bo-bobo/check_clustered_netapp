@@ -111,11 +111,11 @@ func main() {
 	}
 
     if *volume != "" {
+    } else {
         volumeList, err := shared.GetNetAppVolumeList(*host, "space", *username, *password, *cafile, *insecure, httpTimeout)
         if err != nil {
             os.Exit(shared.Unknown)
         }
         fmt.Printf("%+v\n", volumeList)
-    } else {
     }
 }
