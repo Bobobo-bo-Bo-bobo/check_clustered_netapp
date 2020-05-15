@@ -23,5 +23,13 @@ const (
 	Unknown
 )
 
+// NagiosMessagePrefixList - list if message prefixes for Nagios states
+var NagiosMessagePrefixList = [4]string{
+	"OK - ",
+	"WARNING - ",
+	"CRITICAL - ",
+	"UNKNOWN - ",
+}
+
 // RestVolumeListPath - URL path to volumes
 const RestVolumeListPath = "/api/storage/volumes"

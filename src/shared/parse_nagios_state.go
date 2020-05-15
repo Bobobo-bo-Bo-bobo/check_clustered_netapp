@@ -7,7 +7,7 @@ import (
 // ParseNagiosState - parse Nagios state and return message and exit code
 func ParseNagiosState(n NagiosState) (string, int) {
 	var allMsg []string
-	var rc = 99
+	var rc = Unknown
 
 	allMsg = append(allMsg, n.Unknown...)
 	allMsg = append(allMsg, n.Critical...)
@@ -24,5 +24,5 @@ func ParseNagiosState(n NagiosState) (string, int) {
 		rc = Ok
 	}
 
-	return strings.Join(allMsg, "; "), rc
+	return NagiosMessagePrefixList[rc] + strings.Join(allMsg, "; "), rc
 }
