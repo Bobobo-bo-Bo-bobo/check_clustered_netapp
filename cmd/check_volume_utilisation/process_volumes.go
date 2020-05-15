@@ -26,6 +26,7 @@ func processVolumes(vl shared.VolumeList, warn float64, critical float64) shared
 		} else {
 			result.OK = append(result.OK, msg)
 		}
+
 		volCount++
 	}
 	if volCount == 0 {
