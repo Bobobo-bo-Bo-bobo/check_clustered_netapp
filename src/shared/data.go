@@ -12,3 +12,12 @@ type HTTPResult struct {
 	Header     http.Header
 	Content    []byte
 }
+
+// NagiosState - Nagios states
+type NagiosState struct {
+	OK       []string
+	Warning  []string
+	Critical []string
+	Unknown  []string
+	PerfData []string
+}

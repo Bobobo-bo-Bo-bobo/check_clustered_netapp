@@ -126,5 +126,6 @@ func main() {
 			os.Exit(shared.Unknown)
 		}
 	}
-	fmt.Printf("%+v\n", volumeList)
+	state := processVolumes(volumeList, *warning, *critical)
+	fmt.Printf("%+v\n", state)
 }
