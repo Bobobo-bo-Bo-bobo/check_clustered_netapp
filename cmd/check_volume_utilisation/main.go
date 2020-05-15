@@ -127,7 +127,7 @@ func main() {
 		}
 	}
 	state := processVolumes(volumeList, *warning, *critical)
-    message, ret := shared.ParseNagiosState(state)
-    fmt.Println(message)
-    os.Exit(ret)
+	message, ret := shared.ParseNagiosState(state)
+	fmt.Println(message)
+	os.Exit(ret)
 }

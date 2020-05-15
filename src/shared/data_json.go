@@ -28,7 +28,7 @@ type VolumeRecordLinkSelf struct {
 // VolumeRecordSpace - volume utilisation record
 type VolumeRecordSpace struct {
 	Size            uint64                  `json:"size"`
-	Avilable        uint64                  `json:"available"`
+	Available       uint64                  `json:"available"`
 	Used            uint64                  `json:"used"`
 	Footprint       uint64                  `json:"footprint"`
 	OverProvisioned uint64                  `json:"over_provisioned"`
