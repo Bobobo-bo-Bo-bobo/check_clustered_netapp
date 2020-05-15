@@ -114,6 +114,7 @@ func main() {
     } else {
         volumeList, err := shared.GetNetAppVolumeList(*host, "space", *username, *password, *cafile, *insecure, httpTimeout)
         if err != nil {
+            fmt.Fprintf(os.Stderr, "Can't get volume information: %s\n", err)
             os.Exit(shared.Unknown)
         }
         fmt.Printf("%+v\n", volumeList)
