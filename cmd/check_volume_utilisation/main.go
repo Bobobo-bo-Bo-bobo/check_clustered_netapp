@@ -22,6 +22,8 @@ func main() {
 	var volume = flag.String("volume", "", "Only check this particular volume")
 	var cafile = flag.String("ca-file", "", "Use CA certificate for validation of server SSL from <cafile>")
 	var insecure = flag.Bool("insecure", false, "Skip SSL verificattion")
+	var volumeList shared.VolumeList
+	var err error
 
 	flag.Usage = showUsage
 	flag.Parse()
@@ -110,13 +112,19 @@ func main() {
 		}
 	}
 
-    if *volume != "" {
-    } else {
-        volumeList, err := shared.GetNetAppVolumeList(*host, "space", *username, *password, *cafile, *insecure, httpTimeout)
-        if err != nil {
-            fmt.Fprintf(os.Stderr, "Can't get volume information: %s\n", err)
-            os.Exit(shared.Unknown)
-        }
-        fmt.Printf("%+v\n", volumeList)
-    }
+	if *volume != "" {
+		volRec, err := shared.GetNetAppVolumeRecord(*host, *volume, "space", *username, *password, *cafile, *insecure, httpTimeout)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Can't get volume information: %s\n", err)
+			os.Exit(shared.Unknown)
+		}
+		volumeList.Records = append(volumeList.Records, volRec)
+	} else {
+		volumeList, err = shared.GetNetAppVolumeList(*host, "space", *username, *password, *cafile, *insecure, httpTimeout)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Can't get volume information: %s\n", err)
+			os.Exit(shared.Unknown)
+		}
+	}
+	fmt.Printf("%+v\n", volumeList)
 }

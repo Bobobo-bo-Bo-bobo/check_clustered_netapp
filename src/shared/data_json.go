@@ -11,7 +11,7 @@ type VolumeRecord struct {
 	Name string           `json:"name"`
 	Link VolumeRecordLink `json:"_link"`
 	// Note: some fields are considered "expensive" and must be explicitely queried.
-    // See https://library.netapp.com/ecmdocs/ECMLP2856304/html/index.html#/docs-docs-Requesting-specific-fields
+	// See https://library.netapp.com/ecmdocs/ECMLP2856304/html/index.html#/docs-docs-Requesting-specific-fields
 	Space *VolumeRecordSpace `json:"space"`
 }
 
