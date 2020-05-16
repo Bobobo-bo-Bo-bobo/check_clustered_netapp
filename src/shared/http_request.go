@@ -3,6 +3,8 @@ package shared
 import (
 	"context"
 	"crypto/tls"
+	"crypto/x509"
+	"fmt"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -29,14 +31,31 @@ func HTTPRequest(url string, method string, header *map[string]string, reader io
 	var transp *http.Transport
 	var cncl context.CancelFunc
 
+	tlsCfg := tls.Config{}
+	caPool := x509.NewCertPool()
+
 	if insecureSSL {
+		tlsCfg.InsecureSkipVerify = true
+
 		transp = &http.Transport{
 			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 		}
-	} else {
-		transp = &http.Transport{
-			TLSClientConfig: &tls.Config{},
+	}
+
+	if caFile != "" {
+		caData, err := ReadFileContent(caFile)
+		if err != nil {
+			return result, err
 		}
+		ok := caPool.AppendCertsFromPEM(caData)
+		if !ok {
+			return result, fmt.Errorf("Error: Can't append SSL data from CA file to CA pool")
+		}
+	}
+	tlsCfg.RootCAs = caPool
+
+	transp = &http.Transport{
+		TLSClientConfig: &tlsCfg,
 	}
 
 	client := &http.Client{
