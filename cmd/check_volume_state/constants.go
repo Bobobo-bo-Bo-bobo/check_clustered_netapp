@@ -2,7 +2,7 @@ package main
 
 const name = "check_volume_state"
 const helpText = `Usage %s --host=<host> --user=<user> --password=<pwd>|--password-file=<pwdf>
-         [--help] [--timeout=<sec>] [--version] [--volume=<vol>]
+         [--ca-file=<file>] [--help] [--insecure] [--timeout=<sec>] [--version] [--volume=<vol>]
 
   --ca-file=<file>          Use CA certificate from <file> for validation of SSL certificate
 
