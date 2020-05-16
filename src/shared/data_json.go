@@ -7,9 +7,11 @@ type VolumeList struct {
 
 // VolumeRecord - single record from volume list
 type VolumeRecord struct {
-	UUID string           `json:"uuid"`
-	Name string           `json:"name"`
-	Link VolumeRecordLink `json:"_link"`
+	UUID       string                  `json:"uuid"`
+	Name       string                  `json:"name"`
+	State      string                  `json:"state"`
+	ErrorState *VolumeRecordErrorState `json:"error_state"`
+	Link       VolumeRecordLink        `json:"_link"`
 	// Note: some fields are considered "expensive" and must be explicitely queried.
 	// See https://library.netapp.com/ecmdocs/ECMLP2856304/html/index.html#/docs-docs-Requesting-specific-fields
 	Space *VolumeRecordSpace `json:"space"`
@@ -49,4 +51,10 @@ type VolumeRecordSnapshot struct {
 	Used              uint64 `json:"used"`
 	ReservePercent    uint64 `json:"reserve_percent"`
 	AutodeleteEnabled bool   `json:"autodelete_enabled"`
+}
+
+// VolumeRecordErrorState - Error states for volumes
+type VolumeRecordErrorState struct {
+	HasBadBlocks  bool `json:"has_bad_blocks"`
+	IsInconsitent bool `json:"is_inconsistent"`
 }

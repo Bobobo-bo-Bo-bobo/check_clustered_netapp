@@ -1,8 +1,10 @@
 package main
 
 const name = "check_volume_utilisation"
-const helpText = `Usage %s --host=<host> --user=<user> --password=<pwd>|--password-file=<pwdf> [--criticcl=<cpct>]
-         [--help] [--timeout=<sec>] [--version] [--volume=<vol>] [--warning=<wpct>]
+const helpText = `Usage %s --host=<host> --user=<user> --password=<pwd>|--password-file=<pwdf> [--ca-file=<file>]
+         [--criticcl=<cpct>] [--help] [--insecure] [--timeout=<sec>] [--version] [--volume=<vol>] [--warning=<wpct>]
+
+  --ca-file=<file>          Use CA certificate from <file> for validation of SSL certificate
 
   --critical=<cpct>         Report critical if used space is larger then <cpct> percent of the volume
                             Default: %.1f%%
@@ -10,6 +12,8 @@ const helpText = `Usage %s --host=<host> --user=<user> --password=<pwd>|--passwo
   --help                    This text
 
   --host=<host>             Host to connect to
+
+  --insecure                Skip validation of SSL server certificate
 
   --password=<pwd>          Password for authentication
 
