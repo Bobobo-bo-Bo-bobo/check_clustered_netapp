@@ -20,10 +20,10 @@ const helpText = `Usage %s --host=<host> --user=<user> --password=<pwd>|--passwo
   --password-file=<pwdf>    Read password from password file
                             Note: Only the first line of the file is used
 
-  --user=<user>             Username for authentication
-
   --timeout=<sec>           HTTP connection timeout in seconds
                             Default: %d sec.
+
+  --user=<user>             Username for authentication
 
   --version                 Shows version
 
