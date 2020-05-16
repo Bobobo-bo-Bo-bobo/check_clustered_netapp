@@ -53,9 +53,9 @@ func processVolumes(vl shared.VolumeList) shared.NagiosState {
 
 		// add performance data
 		result.PerfData = append(result.PerfData, shared.FormatPerfData("volume_health_online", float64(online), "", math.NaN(), math.NaN(), 0.0, math.NaN()))
-		result.PerfData = append(result.PerfData, shared.FormatPerfData("volume_health_mixed", float64(mixed), "", math.NaN(), math.NaN(), 0.0, math.NaN()))
-		result.PerfData = append(result.PerfData, shared.FormatPerfData("volume_health_error", float64(_error), "", math.NaN(), math.NaN(), 0.0, math.NaN()))
-		result.PerfData = append(result.PerfData, shared.FormatPerfData("volume_health_offline", float64(offline), "", math.NaN(), math.NaN(), 0.0, math.NaN()))
+		result.PerfData = append(result.PerfData, shared.FormatPerfData("volume_health_mixed", float64(mixed), "", math.NaN(), 1.0, 0.0, math.NaN()))
+		result.PerfData = append(result.PerfData, shared.FormatPerfData("volume_health_error", float64(_error), "", math.NaN(), 1.0, 0.0, math.NaN()))
+		result.PerfData = append(result.PerfData, shared.FormatPerfData("volume_health_offline", float64(offline), "", math.NaN(), 1.0, 0.0, math.NaN()))
 
 		volCount++
 	}
