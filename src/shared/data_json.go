@@ -66,7 +66,7 @@ type ShelfList struct {
 
 // ShelfRecord - single shelf record
 type ShelfRecord struct {
-	UUID           string     `json:"uuid"`
+	UUID           string     `json:"uid"`
 	Name           string     `json:"name"`
 	ID             string     `json:"id"`
 	SerialNumber   string     `json:"serial_number"`
