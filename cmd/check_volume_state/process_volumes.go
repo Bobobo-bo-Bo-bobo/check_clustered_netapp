@@ -17,6 +17,10 @@ func processVolumes(vl shared.VolumeList) shared.NagiosState {
 	var unknown uint64
 
 	for _, vol := range vl.Records {
+		if vol.State == "" {
+			continue
+		}
+
 		msg = fmt.Sprintf("Volume %s (name: %s) is in %s state", vol.UUID, vol.Name, vol.State)
 
 		if vol.State == "error" {
