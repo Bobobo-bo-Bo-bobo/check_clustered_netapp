@@ -11,19 +11,19 @@ type VolumeRecord struct {
 	Name       string                  `json:"name"`
 	State      string                  `json:"state"`
 	ErrorState *VolumeRecordErrorState `json:"error_state"`
-	Link       VolumeRecordLink        `json:"_link"`
+	Link       RecordLink              `json:"_link"`
 	// Note: some fields are considered "expensive" and must be explicitely queried.
 	// See https://library.netapp.com/ecmdocs/ECMLP2856304/html/index.html#/docs-docs-Requesting-specific-fields
 	Space *VolumeRecordSpace `json:"space"`
 }
 
-// VolumeRecordLink - _link dict from VolumeRecord
-type VolumeRecordLink struct {
-	Self VolumeRecordLinkSelf `json:"self"`
+// RecordLink - _link dict from VolumeRecord
+type RecordLink struct {
+	Self RecordLinkSelf `json:"self"`
 }
 
-// VolumeRecordLinkSelf - self record from VolumeRecordLink
-type VolumeRecordLinkSelf struct {
+// RecordLinkSelf - self record from VolumeRecordLink
+type RecordLinkSelf struct {
 	Href string `json:"href"`
 }
 
@@ -57,4 +57,47 @@ type VolumeRecordSnapshot struct {
 type VolumeRecordErrorState struct {
 	HasBadBlocks  bool `json:"has_bad_blocks"`
 	IsInconsitent bool `json:"is_inconsistent"`
+}
+
+// ShelfList - list of shelves
+type ShelfList struct {
+	Records []ShelfRecord `json:"records"`
+}
+
+// ShelfRecord - single shelf record
+type ShelfRecord struct {
+	UUID           string     `json:"uid"`
+	Name           string     `json:"name"`
+	ID             string     `json:"id"`
+	SerialNumber   string     `json:"serial_number"`
+	Model          string     `json:"model"`
+	ModuleType     string     `json:"module_type"`
+	Internal       bool       `json:"internal"`
+	State          string     `json:"state"`
+	ConnectionType string     `json:"connection_type"`
+	DiskCount      uint64     `json:"disk_count"`
+	Link           RecordLink `json:"_link"`
+}
+
+// DiskList - list of disks
+type DiskList struct {
+	Records []DiskRecord `json:"records"`
+}
+
+// DiskRecord - record of a single disk
+type DiskRecord struct {
+	UUID         string     `json:"uid"`
+	Name         string     `json:"name"`
+	Vendor       string     `json:"vendor"`
+	SerialNumber string     `json:"serial_number"`
+	Model        string     `json:"model"`
+	State        string     `json:"state"`
+	Bay          uint64     `json:"bay"`
+	Drawer       DiskDrawer `json:"drawer"`
+}
+
+// DiskDrawer - disk drawer
+type DiskDrawer struct {
+	ID   uint64 `json:"id"`
+	Slot uint64 `json:"slot"`
 }
