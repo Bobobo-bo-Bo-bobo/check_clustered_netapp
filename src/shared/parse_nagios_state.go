@@ -8,7 +8,7 @@ import (
 func ParseNagiosState(n NagiosState) (string, int) {
 	var allMsg []string
 	var rc = Unknown
-    var msg string
+	var msg string
 
 	allMsg = append(allMsg, n.Unknown...)
 	allMsg = append(allMsg, n.Critical...)
@@ -24,11 +24,11 @@ func ParseNagiosState(n NagiosState) (string, int) {
 		rc = Ok
 	}
 
-    if len(n.PerfData) > 0 {
-        msg = NagiosMessagePrefixList[rc] + strings.Join(allMsg, "; ") + "|" + strings.Join(n.PerfData, " ")
-    } else {
-        msg = NagiosMessagePrefixList[rc] + strings.Join(allMsg, "; ")
-    }
+	if len(n.PerfData) > 0 {
+		msg = NagiosMessagePrefixList[rc] + strings.Join(allMsg, "; ") + "|" + strings.Join(n.PerfData, " ")
+	} else {
+		msg = NagiosMessagePrefixList[rc] + strings.Join(allMsg, "; ")
+	}
 
-    return msg, rc
+	return msg, rc
 }

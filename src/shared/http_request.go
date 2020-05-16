@@ -1,6 +1,7 @@
 package shared
 
 import (
+	"context"
 	"crypto/tls"
 	"io"
 	"io/ioutil"
@@ -26,6 +27,7 @@ import (
 func HTTPRequest(url string, method string, header *map[string]string, reader io.Reader, userName string, password string, caFile string, insecureSSL bool, timeout time.Duration) (HTTPResult, error) {
 	var result HTTPResult
 	var transp *http.Transport
+	var cncl context.CancelFunc
 
 	if insecureSSL {
 		transp = &http.Transport{
@@ -54,6 +56,11 @@ func HTTPRequest(url string, method string, header *map[string]string, reader io
 	if err != nil {
 		return result, err
 	}
+
+	cntx := context.Background()
+	cntx, cncl = context.WithTimeout(cntx, timeout)
+	defer cncl()
+	request.WithContext(cntx)
 
 	defer func() {
 		if request.Body != nil {

@@ -5,7 +5,7 @@ import (
 )
 
 // Version - package version
-const Version = "1.0.0-20200515"
+const Version = "1.0.0-20200516"
 const name = "check_clustered_netapp"
 const url = "https://git.ypbind.de/cgit/check_clustered_netapp"
 
