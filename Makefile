@@ -1,7 +1,7 @@
 GOPATH	= $(CURDIR)
 BINDIR	= $(CURDIR)/bin
 
-PROGRAMS = check_volume_utilisation
+PROGRAMS = check_volume_utilisation check_volume_state
 
 depend:
 	#
@@ -13,18 +13,21 @@ destdirs:
 	mkdir -p -m 0755 $(DESTDIR)/usr/lib64/nagios/plugins
 
 strip: build
-	strip --strip-all $(BINDIR)/$(PROGRAMS)
+	strip --strip-all $(BINDIR)/check_volume_state
+	strip --strip-all $(BINDIR)/check_volume_utilisation
 
 install: strip destdirs install-bin
 
 install-bin:
-	install -m 0755 $(BINDIR)/$(PROGRAMS) $(DESTDIR)/usr/lib64/nagios/plugins
+	install -m 0755 $(BINDIR)/check_volume_state $(DESTDIR)/usr/lib64/nagios/plugins
+	install -m 0755 $(BINDIR)/check_volume_utilisation $(DESTDIR)/usr/lib64/nagios/plugins
 
 clean:
-	/bin/rm -f bin/$(PROGRAMS)
+	/bin/rm -f bin/check_volume_state
+	/bin/rm -f bin/check_volume_utilisation
 
 distclean: clean
-	/bin/rm -rf src/github.com/
+	#
 
 uninstall:
 	/bin/rm -f $(DESTDIR)/usr/lib64/nagios/plugins
