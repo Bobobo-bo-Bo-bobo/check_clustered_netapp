@@ -36,3 +36,6 @@ const RestVolumeListPath = "/api/storage/volumes"
 
 // RestShelfListPath - URL path for shelves
 const RestShelfListPath = "/api/storage/shelves"
+
+// RestDiskListPath - URL path for disks
+const RestDiskListPath = "/api/storage/disks"
