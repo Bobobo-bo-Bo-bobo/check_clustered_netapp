@@ -8,8 +8,10 @@ To check the utilisation of a single volume or all volumes `check_volume_utilisa
 
 | *Option* | *Description* | *Default* | *Note* |
 |:---------|:--------------|:---------:|:------:|
+| `--ca-file=<file> | Use CA certificate from <file> for validation of SSL certificate | - |
 | `--critical=<pct>` | Report CRITICAL if used space is larger then <cpct> percent of the volume | 90.0% | - |
 | `--help` | Show help text | - | - |
+| `--insecure` | Skip validation of SSL server certificate | - | - |
 | `--host=<host>` | Host to connect to | - | **mandatory** |
 | `--password=<pass>` | Password for authentication | - | - |
 | `--password-file=<passf>` | Read password for authentication from file <passf> | - | Only the first line in <passf> is used as password |
@@ -19,4 +21,19 @@ To check the utilisation of a single volume or all volumes `check_volume_utilisa
 | `--volume=<uuid>` | Only check volume with UUID <uuid> | - | If omitted all volumes will be checked |
 | `--warning=<pct>` | Report WARNING if used space is larger then <cpct> percent of the volume | 80.0% | - |
 
+## Check volume health
+To check the utilisation of a single volume or all volumes `check_volume_state` can be used.
+
+| *Option* | *Description* | *Default* | *Note* |
+|:---------|:--------------|:---------:|:------:|
+| `--ca-file=<file> | Use CA certificate from <file> for validation of SSL certificate | - |
+| `--help` | Show help text | - | - |
+| `--insecure` | Skip validation of SSL server certificate | - | - |
+| `--host=<host>` | Host to connect to | - | **mandatory** |
+| `--password=<pass>` | Password for authentication | - | - |
+| `--password-file=<passf>` | Read password for authentication from file <passf> | - | Only the first line in <passf> is used as password |
+| `--user=<user>` | Username for authentication | - | **mandatory** |
+| `--timeout=<sec>` | HTTP connection timeout in seconds | 60 | - |
+| `--version` | Show version information | - | - |
+| `--volume=<uuid>` | Only check volume with UUID <uuid> | - | If omitted all volumes will be checked |
 
