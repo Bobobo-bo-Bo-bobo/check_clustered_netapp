@@ -1,8 +1,6 @@
 GOPATH	= $(CURDIR)
 BINDIR	= $(CURDIR)/bin
 
-PROGRAMS = check_volume_utilisation check_volume_state
-
 depend:
 	#
 
@@ -13,6 +11,7 @@ destdirs:
 	mkdir -p -m 0755 $(DESTDIR)/usr/lib64/nagios/plugins
 
 strip: build
+	strip --strip-all $(BINDIR)/check_shelf_state
 	strip --strip-all $(BINDIR)/check_volume_state
 	strip --strip-all $(BINDIR)/check_volume_utilisation
 
@@ -23,6 +22,7 @@ install-bin:
 	install -m 0755 $(BINDIR)/check_volume_utilisation $(DESTDIR)/usr/lib64/nagios/plugins
 
 clean:
+	/bin/rm -f bin/check_shelf_state
 	/bin/rm -f bin/check_volume_state
 	/bin/rm -f bin/check_volume_utilisation
 
