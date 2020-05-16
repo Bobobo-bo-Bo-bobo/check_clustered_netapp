@@ -93,14 +93,14 @@ func main() {
 	}
 
 	if *volume != "" {
-		volRec, err := shared.GetNetAppVolumeRecord(*host, *volume, "space", *username, *password, *cafile, *insecure, httpTimeout)
+		volRec, err := shared.GetNetAppVolumeRecord(*host, *volume, "state", *username, *password, *cafile, *insecure, httpTimeout)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Can't get volume information: %s\n", err)
 			os.Exit(shared.Unknown)
 		}
 		volumeList.Records = append(volumeList.Records, volRec)
 	} else {
-		volumeList, err = shared.GetNetAppVolumeList(*host, "space", *username, *password, *cafile, *insecure, httpTimeout)
+		volumeList, err = shared.GetNetAppVolumeList(*host, "state", *username, *password, *cafile, *insecure, httpTimeout)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Can't get volume information: %s\n", err)
 			os.Exit(shared.Unknown)
