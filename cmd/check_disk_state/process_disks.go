@@ -70,7 +70,7 @@ func processDisks(dl shared.DiskList) shared.NagiosState {
 	}
 
 	if ok > 0 {
-		result.OK = append(result.OK, fmt.Sprintf("%d disks are ok", ok))
+		result.OK = append(result.OK, fmt.Sprintf("%d disks are ok (%d present, %d copying, %d partner, %d reconstructing, %d spare, %d unfail)", ok, prs, cpy, prt, rcs, spr, unf))
 	}
 
 	// add performance data
