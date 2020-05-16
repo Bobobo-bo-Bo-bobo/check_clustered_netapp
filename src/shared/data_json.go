@@ -92,7 +92,7 @@ type DiskRecord struct {
 	SerialNumber string     `json:"serial_number"`
 	Model        string     `json:"model"`
 	State        string     `json:"state"`
-	Bay          string     `json:"bay"`
+	Bay          uint64     `json:"bay"`
 	Drawer       DiskDrawer `json:"drawer"`
 }
 
