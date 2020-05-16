@@ -78,3 +78,26 @@ type ShelfRecord struct {
 	DiskCount      uint64     `json:"disk_count"`
 	Link           RecordLink `json:"_link"`
 }
+
+// DiskList - list of disks
+type DiskList struct {
+	Records DiskRecord `json:"records"`
+}
+
+// DiskRecord - record of a single disk
+type DiskRecord struct {
+	UUID         string     `json:"uid"`
+	Name         string     `json:"name"`
+	Vendor       string     `json:"vendor"`
+	SerialNumber string     `json:"serial_number"`
+	Model        string     `json:"model"`
+	State        string     `json:"state"`
+	Bay          string     `json:"bay"`
+	Drawer       DiskDrawer `json:"drawer"`
+}
+
+// DiskDrawer - disk drawer
+type DiskDrawer struct {
+	ID   uint64 `json:"id"`
+	Slot uint64 `json:"slot"`
+}
