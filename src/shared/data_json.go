@@ -81,7 +81,7 @@ type ShelfRecord struct {
 
 // DiskList - list of disks
 type DiskList struct {
-	Records DiskRecord `json:"records"`
+	Records []DiskRecord `json:"records"`
 }
 
 // DiskRecord - record of a single disk
