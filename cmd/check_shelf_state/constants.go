@@ -2,7 +2,7 @@ package main
 
 const name = "check_shelf_state"
 const helpText = `Usage %s --host=<host> --user=<user> --password=<pwd>|--password-file=<pwdf>
-         [--ca-file=<file>] [--help] [--insecure] [--timeout=<sec>] [--version]
+         [--ca-file=<file>] [--help] [--insecure] [--shelf=<uuid>] [--timeout=<sec>] [--version]
 
   --ca-file=<file>          Use CA certificate from <file> for validation of SSL certificate
 
@@ -17,10 +17,12 @@ const helpText = `Usage %s --host=<host> --user=<user> --password=<pwd>|--passwo
   --password-file=<pwdf>    Read password from password file
                             Note: Only the first line of the file is used
 
-  --user=<user>             Username for authentication
+  --shelf=<uuid>            Only check shelf with UUID <uuid> instead of all shelves
 
   --timeout=<sec>           HTTP connection timeout in seconds
                             Default: %d sec.
+
+  --user=<user>             Username for authentication
 
   --version                 Shows version
 
