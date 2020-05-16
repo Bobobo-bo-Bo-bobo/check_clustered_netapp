@@ -61,6 +61,11 @@ type VolumeRecordErrorState struct {
 
 // ShelfList - list of shelves
 type ShelfList struct {
+	Records []ShelfRecord `json:"records"`
+}
+
+// ShelfRecord - single shelf record
+type ShelfRecord struct {
 	UUID           string     `json:"uuid"`
 	Name           string     `json:"name"`
 	ID             string     `json:"id"`
