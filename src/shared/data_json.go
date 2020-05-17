@@ -94,10 +94,47 @@ type DiskRecord struct {
 	State        string     `json:"state"`
 	Bay          uint64     `json:"bay"`
 	Drawer       DiskDrawer `json:"drawer"`
+	Link         RecordLink `json:"_link"`
 }
 
 // DiskDrawer - disk drawer
 type DiskDrawer struct {
 	ID   uint64 `json:"id"`
 	Slot uint64 `json:"slot"`
+}
+
+// AggregateList - list of aggregates
+type AggregateList struct {
+	Records []AggregateRecord `json:"records"`
+}
+
+// AggregateRecord - aggregate data
+type AggregateRecord struct {
+	UUID  string                `json:"uid"`
+	Name  string                `json:"name"`
+	State string                `json:"state"`
+	Space *AggregateRecordSpace `json:"space"`
+	Link  RecordLink            `json:"_link"`
+}
+
+// AggregateRecordSpace - used disk space of an aggregate
+type AggregateRecordSpace struct {
+	BlockStorage                AggregateRecordSpaceBlockStorage `json:"block_storage"`
+	Efficiency                  AggregateRecordSpaceEfficiency   `json:"efficiency"`
+	EfficiencyWithoutSnapshhots AggregateRecordSpaceEfficiency   `json:"efficiency_without_snapshots"`
+}
+
+// AggregateRecordSpaceBlockStorage - block storage information of an aggregate
+type AggregateRecordSpaceBlockStorage struct {
+	Size                 uint64 `json:"size"`
+	Available            uint64 `json:"available"`
+	Used                 uint64 `json:"used"`
+	FullThresholdPercent uint64 `json:"full_threshold_percent"`
+}
+
+// AggregateRecordSpaceEfficiency - efficiency statistics for an aggregate
+type AggregateRecordSpaceEfficiency struct {
+	Savings     uint64  `json:"savings"`
+	Ratio       float64 `json:"ratio"`
+	LogicalUsed uint64  `json:"logical_used"`
 }

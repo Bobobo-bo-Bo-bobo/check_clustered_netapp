@@ -24,7 +24,7 @@ const helpText = `Usage %s --host=<host> --user=<user> --password=<pwd>|--passwo
 
   --version                 Shows version
 
-  --volume=<vol>            Only check volume <vol>
+  --volume=<vol>            Only check volume with UUID <vol>
                             Default: check all volumes
 
 `
