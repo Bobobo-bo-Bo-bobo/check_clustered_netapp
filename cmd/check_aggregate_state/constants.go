@@ -1,8 +1,11 @@
 package main
 
-const name = "check_volume_state"
+const name = "check_aggregate_state"
 const helpText = `Usage %s --host=<host> --user=<user> --password=<pwd>|--password-file=<pwdf>
-         [--ca-file=<file>] [--help] [--insecure] [--timeout=<sec>] [--version] [--volume=<vol>]
+         [--aggregate=<aggr>] [--ca-file=<file>] [--help] [--insecure] [--timeout=<sec>] [--version]
+
+  --aggregate=<aggr>        Only check aggregate with UUID <aggr>
+                            Default: check all aggregates
 
   --ca-file=<file>          Use CA certificate from <file> for validation of SSL certificate
 
@@ -23,9 +26,6 @@ const helpText = `Usage %s --host=<host> --user=<user> --password=<pwd>|--passwo
   --user=<user>             Username for authentication
 
   --version                 Shows version
-
-  --volume=<vol>            Only check volume with UUID <vol>
-                            Default: check all volumes
 
 `
 

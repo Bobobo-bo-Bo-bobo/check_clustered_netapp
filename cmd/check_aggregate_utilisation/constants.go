@@ -1,8 +1,11 @@
 package main
 
-const name = "check_volume_utilisation"
+const name = "check_aggregate_utilisation"
 const helpText = `Usage %s --host=<host> --user=<user> --password=<pwd>|--password-file=<pwdf> [--ca-file=<file>]
-         [--criticcl=<cpct>] [--help] [--insecure] [--timeout=<sec>] [--version] [--volume=<vol>] [--warning=<wpct>]
+         [--aggregate=<aggr>] [--criticcl=<cpct>] [--help] [--insecure] [--timeout=<sec>] [--version] [--warning=<wpct>]
+
+  --aggregate=<aggr>        Only check aggregate with UUID <aggr>
+                            Default: check all aggregates
 
   --ca-file=<file>          Use CA certificate from <file> for validation of SSL certificate
 
@@ -26,9 +29,6 @@ const helpText = `Usage %s --host=<host> --user=<user> --password=<pwd>|--passwo
   --user=<user>             Username for authentication
 
   --version                 Shows version
-
-  --volume=<vol>            Only check volume with UUID <vol>
-                            Default: check all volumes
 
   --warning=<wpct>          Report warning if used space is larger than <wpct> percent of the volume
                             Default: %.1f%%
