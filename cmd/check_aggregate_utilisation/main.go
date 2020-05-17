@@ -113,14 +113,14 @@ func main() {
 	}
 
 	if *aggregate != "" {
-		aggrRec, err := shared.GetNetAppAggregateRecord(*host, *aggregate, "space", *username, *password, *cafile, *insecure, httpTimeout)
+		aggrRec, err := shared.GetNetAppAggregateRecord(*host, *aggregate, "uuid,name,space", *username, *password, *cafile, *insecure, httpTimeout)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Can't get aggregate information: %s\n", err)
 			os.Exit(shared.Unknown)
 		}
 		aggregateList.Records = append(aggregateList.Records, aggrRec)
 	} else {
-		aggregateList, err = shared.GetNetAppAggregateList(*host, "space", *username, *password, *cafile, *insecure, httpTimeout)
+		aggregateList, err = shared.GetNetAppAggregateList(*host, "uuid,name,space", *username, *password, *cafile, *insecure, httpTimeout)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Can't get aggregate information: %s\n", err)
 			os.Exit(shared.Unknown)

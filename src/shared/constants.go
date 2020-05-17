@@ -41,4 +41,4 @@ const RestShelfListPath = "/api/storage/shelves"
 const RestDiskListPath = "/api/storage/disks"
 
 // RestAggregateListPath - URL path to volumes
-const RestAggregateListPath = "/api/storage/volumes"
+const RestAggregateListPath = "/api/storage/aggregates"
