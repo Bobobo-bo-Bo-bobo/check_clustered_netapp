@@ -3,8 +3,11 @@ Starting with ONTAP 9.6 NetApp file server provide a REST API (in addition to th
 The general documentation can be found at the [ONTAP 9 documentation center](http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-rest-api/home.html) and the endpoint documentation can be found at [ONTAP REST API documentation](https://library.netapp.com/ecmdocs/ECMLP2856304/html/index.html).
 
 # Nagios checks
-## Check volume utilisation
-`check_volume_utilisation`: check the utilisation of a single volume or all volumes
+## Volumes
+### Utilisation
+**_Command:_** `check_volume_utilisation`
+
+**_Options:_**
 
 | *Option* | *Description* | *Default* | *Note* |
 |:---------|:--------------|:---------:|:------:|
@@ -21,8 +24,10 @@ The general documentation can be found at the [ONTAP 9 documentation center](htt
 | `--volume=<uuid>` | Only check volume with UUID <uuid> | - | If omitted all volumes will be checked |
 | `--warning=<pct>` | Report WARNING if used space is larger then <cpct> percent of the volume | 80.0% | - |
 
-## Check volume health
-`check_volume_state`: check the health of a single volume or all volumes
+### Health
+**_Command:_** `check_volume_state`
+
+**_Options:_**
 
 | *Option* | *Description* | *Default* | *Note* |
 |:---------|:--------------|:---------:|:------:|
@@ -37,8 +42,11 @@ The general documentation can be found at the [ONTAP 9 documentation center](htt
 | `--version` | Show version information | - | - |
 | `--volume=<uuid>` | Only check volume with UUID <uuid> | - | If omitted all volumes will be checked |
 
-## Check shelf health
-`check_shelf_health`: check health of a shelf or all attached shelves
+## Shelves
+## Health
+**_Command:_** `check_shelf_health`
+
+**_Options:_**
 
 | *Option* | *Description* | *Default* | *Note* |
 |:---------|:--------------|:---------:|:------:|
@@ -53,8 +61,11 @@ The general documentation can be found at the [ONTAP 9 documentation center](htt
 | `--user=<user>` | Username for authentication | - | **mandatory** |
 | `--version` | Show version information | - | - |
 
-## Check disk health
-`check_disk_health`: check health of disks
+## Disks
+### Health
+**_Command:_** `check_disk_health`
+
+**_Options:_**
 
 | *Option* | *Description* | *Default* | *Note* |
 |:---------|:--------------|:---------:|:------:|
