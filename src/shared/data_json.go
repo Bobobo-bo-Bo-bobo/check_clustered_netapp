@@ -110,7 +110,7 @@ type AggregateList struct {
 
 // AggregateRecord - aggregate data
 type AggregateRecord struct {
-	UUID  string                `json:"uid"`
+	UUID  string                `json:"uuid"`
 	Name  string                `json:"name"`
 	State string                `json:"state"`
 	Space *AggregateRecordSpace `json:"space"`
