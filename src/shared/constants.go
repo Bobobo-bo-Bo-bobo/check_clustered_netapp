@@ -5,7 +5,7 @@ import (
 )
 
 // Version - package version
-const Version = "1.0.0"
+const Version = "1.1.0-2020527"
 const name = "check_clustered_netapp"
 const url = "https://git.ypbind.de/cgit/check_clustered_netapp"
 
@@ -42,3 +42,6 @@ const RestDiskListPath = "/api/storage/disks"
 
 // RestAggregateListPath - URL path to volumes
 const RestAggregateListPath = "/api/storage/aggregates"
+
+// RestSnapmirrorRelationshipListPath - URL path to snapmirror relationships
+const RestSnapmirrorRelationshipListPath = "/api/snapmirror/relationships"
