@@ -1,3 +1,7 @@
+[TOC]
+
+----
+
 # Preface
 Starting with ONTAP 9.6 NetApp file server provide a REST API (in addition to the classic XML API used by the NetApp SDK).
 The general documentation can be found at the [ONTAP 9 documentation center](http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-rest-api/home.html) and the endpoint documentation can be found at [ONTAP REST API documentation](https://library.netapp.com/ecmdocs/ECMLP2856304/html/index.html).
@@ -76,6 +80,24 @@ The general documentation can be found at the [ONTAP 9 documentation center](htt
 | `--password=<pass>` | Password for authentication | - | - |
 | `--password-file=<passf>` | Read password for authentication from file <passf> | - | Only the first line in <passf> is used as password |
 | `--shelf=<uuid>` | Only check shelf with UUID <uuid> | - | If omitted all shelves will be checked |
+| `--timeout=<sec>` | HTTP connection timeout in seconds | 60 | - |
+| `--user=<user>` | Username for authentication | - | **mandatory** |
+| `--version` | Show version information | - | - |
+
+## Snapmirror relationships
+### State
+**_Command:_** `check_snapmirror_relationship_state`
+
+**_Options:_**
+
+| *Option* | *Description* | *Default* | *Note* |
+|:---------|:--------------|:---------:|:------:|
+| `--ca-file=<file>` | Use CA certificate from <file> for validation of SSL certificate | - |
+| `--help` | Show help text | - | - |
+| `--insecure` | Skip validation of SSL server certificate | - | - |
+| `--host=<host>` | Host to connect to | - | **mandatory** |
+| `--password=<pass>` | Password for authentication | - | - |
+| `--password-file=<passf>` | Read password for authentication from file <passf> | - | Only the first line in <passf> is used as password |
 | `--timeout=<sec>` | HTTP connection timeout in seconds | 60 | - |
 | `--user=<user>` | Username for authentication | - | **mandatory** |
 | `--version` | Show version information | - | - |

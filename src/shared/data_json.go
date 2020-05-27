@@ -138,3 +138,42 @@ type AggregateRecordSpaceEfficiency struct {
 	Ratio       float64 `json:"ratio"`
 	LogicalUsed uint64  `json:"logical_used"`
 }
+
+// SnapmirrorRelationshipList - list of snapmirror relationships
+type SnapmirrorRelationshipList struct {
+	Records []SnapmirrorRelationshipRecord `json:"records"`
+}
+
+// SnapmirrorRelationshipRecord - status of a single snapmirror relationship
+type SnapmirrorRelationshipRecord struct {
+	UUID            string                                  `json:"uuid"`
+	Source          SnapmirrorRelationshipSource            `json:"source"`
+	Healthy         bool                                    `json:"healthy"`
+	UnhealthyReason []SnapmirrorRelationshipUnhealthyReason `json:"unhealthy_reason"`
+	Link            RecordLink                              `json:"_link"`
+}
+
+// SnapmirrorRelationshipSource - source of a snapmirror relationship
+type SnapmirrorRelationshipSource struct {
+	Path    string                        `json:"path"`
+	SVM     SnapmirrorRelationshipSVM     `json:"svm"`
+	Cluster SnapmirrorRelationshipCluster `json:"cluster"`
+}
+
+// SnapmirrorRelationshipSVM - definition of storage virtual machine (SVM)
+type SnapmirrorRelationshipSVM struct {
+	Name string `json:"name"`
+}
+
+// SnapmirrorRelationshipCluster - cluster information
+type SnapmirrorRelationshipCluster struct {
+	Name string     `json:"name"`
+	UUID string     `json:"uuid"`
+	Link RecordLink `json:"_link"`
+}
+
+// SnapmirrorRelationshipUnhealthyReason - reason why a snapmirror relationship is unhealthy
+type SnapmirrorRelationshipUnhealthyReason struct {
+	Message string `json:"message"`
+	Code    string `json:"code"`
+}
