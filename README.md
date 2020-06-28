@@ -1,5 +1,4 @@
 **_Note:_** Because I'm running my own servers for several years, main development is done at at https://git.ypbind.de/cgit/check_clustered_netapp/
-=======
 
 ----
 
